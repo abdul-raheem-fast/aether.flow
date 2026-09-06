@@ -18,6 +18,12 @@
 .coverage
 htmlcov
 
+# Secrets / local env - `vercel link` writes a VERCEL_OIDC_TOKEN to .env.local;
+# never upload it (runtime env vars are set in the Vercel dashboard, not here).
+.env
+.env.*
+.env*.local
+
 # Virtualenvs and Node deps (never needed at runtime; dist is prebuilt)
 .venv
 venv
@@ -27,6 +33,8 @@ node_modules
 
 # Large or regenerable data not read at serving time
 cleaned
+raw
+references
 routing/data/routing_matrix.csv
 routing/data/aligned7_dedup_report.json
 

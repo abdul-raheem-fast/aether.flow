@@ -1,11 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "mkdir -p public && cp -a webapp/frontend/dist/. public/",
   "functions": {
-    "api/index.py": {
+    "api/*.py": {
       "includeFiles": "{webapp/**,routing/**,models_registry.json}"
     }
-  },
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/api" }
-  ]
+  }
 }

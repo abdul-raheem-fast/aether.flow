@@ -1,0 +1,224 @@
+=== SLIDE 1 (ppt/slides/slide1.xml) ===
+OptiRoute AI
+01
+Choosing an LLM for each query
+A routing prototype for quality, cost, latency and privacy
+Muhammad Abdul Raheem Khan
+Muhammad Umar Shoaib Khokhar
+Ahmad Rasheed
+FAST-NUCES Lahore
+Supervisor: Dr. Zeeshan Ali Rana
+
+=== SLIDE 2 (ppt/slides/slide2.xml) ===
+The problem
+02
+A fixed model choice ignores the needs of each request
+One model for every request
+A flagship model adds cost.
+A cheap model can miss difficult tasks.
+Constraints change by request
+A user may need a fast response.
+Sensitive input may require a local model.
+Which eligible model can answer this query at an acceptable cost and quality?
+
+=== SLIDE 3 (ppt/slides/slide3.xml) ===
+Related work
+Ong et al., RouteLLM (2024)    /    Chen et al., FrugalGPT (2023)
+03
+Work
+Main idea
+What we take forward
+RouteLLM
+Learn a strong / weak model choice
+from preference data
+Select before generation
+Add explicit deployment constraints
+FrugalGPT
+Call models in a learned cascade
+and assess their answers
+Use cheaper models where sufficient
+Avoid extra generation just to route
+Our focus: eight model scores with cost, latency and privacy controls
+
+=== SLIDE 4 (ppt/slides/slide4.xml) ===
+What the prototype does
+04
+Input
+Query text
+Capability class
+Objective and optional limits
+Output
+Selected model
+Estimated cost and latency
+Reason and eligibility details
+React dashboard + FastAPI + frozen routing weights
+The demo makes a routing decision. Provider execution is the next integration step.
+
+=== SLIDE 5 (ppt/slides/slide5.xml) ===
+Predict first. Dispatch second.
+05
+USER QUERY
+LOCAL OPTIROUTE SCORER
+QUALITY / COST / LATENCY / PRIVACY
+CHEAP / MID / STRONG MODEL
+NO EXTRA LLM CALL
+Milliseconds of routing overhead
+Zero routing tokens
+The scorer runs in the API process without calling another LLM.
+
+=== SLIDE 6 (ppt/slides/slide6.xml) ===
+Routing parameters
+Cost and latency are normalized. Unmet limits trigger a reported fallback.
+06
+Parameter
+Meaning in the prototype
+Quality score Q
+Per-query estimate from the learned scoring head
+Cost penalty λcost
+Weight on recorded average cost per query
+Latency penalty λlatency
+Weight on recorded average model response time
+Privacy eligibility
+Only approved models can receive sensitive queries
+Optional limits
+Quality-score floor and estimated latency budget
+Utility = quality - λcost × cost - λlatency × latency
+
+=== SLIDE 7 (ppt/slides/slide7.xml) ===
+Benchmark and evaluation
+Five classes: coding, competitive math, general knowledge, mathematical reasoning, science
+07
+Separate learning from final evaluation
+Training
+Validation
+Held-out test
+Fit model scores
+Choose operating settings
+Report final performance
+Benchmark details and results in the live walkthrough
+
+=== SLIDE 8 (ppt/slides/slide8.xml) ===
+Research baseline results
+Cost and latency reflect recorded benchmark model outcomes.
+08
+Policy
+USD / query
+Mean latency
+Always cheapest
+$0.000013
+0.311 s
+Always GPT-5
+$0.019061
+0.763 s
+Learned cascade
+$0.006023
+3.490 s
+68.4%
+lower recorded cost
+Higher latency
+A trade-off to assess alongside cost
+
+=== SLIDE 9 (ppt/slides/slide9.xml) ===
+Different objectives, different trade-offs
+Recorded benchmark comparison. Always GPT-5: $0.019061/query, 0.763 s mean latency.
+09
+Objective
+USD / query
+Mean latency
+Economy
+$0.003334
+2.401 s
+Balanced
+$0.016260
+0.624 s
+Speed
+$0.003038
+0.164 s
+Quality
+$0.046992
+1.615 s
+Private
+$0.000759
+3.832 s
+The objective changes the decision, and each choice has a cost
+
+=== SLIDE 10 (ppt/slides/slide10.xml) ===
+Live demo
+10
+Same query. Change the objective.
+1   Balanced vs Economy
+Run the “Easy coding task” example.
+Compare the selected model and cost.
+2   Private mode
+Keep the query unchanged.
+Inspect the restricted model pool.
+optiroute-ai-phi.vercel.app
+Live model selection with benchmark-based cost and latency estimates
+
+=== SLIDE 11 (ppt/slides/slide11.xml) ===
+Next steps for OptiRoute AI
+11
+Working in OptiRoute
+Next integration steps
+Query scoring and model selection
+Local / cloud provider execution
+Rule-based sensitivity + eligibility
+Presidio masking and privacy vault
+Routing dashboard and saved results
+Verified semantic cache and telemetry
+Lightweight logistic predictor
+Evaluate the proposed encoder predictor
+Connect the gateway to the VS Code reference client
+
+=== SLIDE 12 (ppt/slides/slide12.xml) ===
+A routing decision we can explain
+12
+Query-level model selection
+68.4% lower recorded cost than always GPT-5
+Inspect the evidence in the live walkthrough
+Questions
+
+=== SLIDE 13 (ppt/slides/slide13.xml) ===
+Appendix: model and policy settings
+13
+Predictor
+2,048 hashed character 4-gram features
+5 text statistics + 5 class indicators
+8 model-class prior values
+8 logistic heads, 16,536 coefficients
+Learning rate 0.25, L2 = 0.0001
+600 training iterations
+Mode
+λcost
+λlatency
+Economy
+1.00
+0.10
+Balanced
+0.50
+0.10
+Speed
+0.25
+1.00
+Quality
+0.00
+0.00
+Private
+0.50
+0.10
+Baseline threshold: 0.95     /     Split seed: 42
+
+=== SLIDE 14 (ppt/slides/slide14.xml) ===
+Appendix: questions to expect
+14
+Question
+Answer
+Does it generate answers?
+The deployed demo selects a model only.
+Are latency and cost live?
+Router overhead is live. Model figures use benchmark data.
+Is privacy guaranteed?
+Eligibility rules work, but detection and deployment need validation.
+Did it beat RouteLLM?
+We have not run a matched head-to-head comparison.
+

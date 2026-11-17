@@ -1,4 +1,4 @@
-# ⚡ OptiRoute AI
+# ⚡ AetherFlow
 
 ### Intelligent LLM Routing for Quality, Cost, Latency & Privacy
 
@@ -22,13 +22,13 @@
 
 ---
 
-## 🎯 What is OptiRoute?
+## 🎯 What is AetherFlow?
 
 LLMs have very different **quality, cost, latency, and deployment constraints**.
 
 A difficult reasoning query may justify GPT-5. A simpler query may be answered well by a much cheaper model.
 
-**OptiRoute learns these trade-offs and makes the routing decision before inference.**
+**AetherFlow learns these trade-offs and makes the routing decision before inference.**
 
 Instead of:
 
@@ -36,12 +36,12 @@ Instead of:
 Every Query → GPT-5
 ```
 
-OptiRoute does:
+AetherFlow does:
 
 ```text
                          ┌─ Cheap model
                          │
-Query → OptiRoute Router ├─ Mid-tier model
+Query → AetherFlow Router ├─ Mid-tier model
                          │
                          └─ Strong model
 ```
@@ -55,7 +55,7 @@ $$\text{Quality} \;\longleftrightarrow\; \text{Cost} \;\longleftrightarrow\; \te
 <br/>
 
 <div align="center">
-  <img src="figures/screenshots/dashboard_overview.png" alt="OptiRoute AI Main Dashboard" width="100%" />
+  <img src="figures/screenshots/dashboard_overview.png" alt="AetherFlow Main Dashboard" width="100%" />
   <p><em>① Main Dashboard: Live intelligent routing across 8 production LLMs before inference dispatch.</em></p>
 </div>
 
@@ -69,9 +69,9 @@ On our sealed test set:
 |---|:---:|:---:|:---:|
 | Always GPT-5 | 88.65% | $0.019061 | — |
 | Always cheapest | 42.20% | $0.000013 | 99.9% |
-| **OptiRoute learned cascade** | **84.04%** | **$0.006023** | **68.4%** |
+| **AetherFlow learned cascade** | **84.04%** | **$0.006023** | **68.4%** |
 
-That means OptiRoute retained:
+That means AetherFlow retained:
 
 **94.8% of GPT-5 quality while cutting inference cost by 68.4%.**
 
@@ -81,7 +81,7 @@ The router itself runs locally and adds approximately **11 ms median routing ove
 
 ## 🔬 Research Behind the Router
 
-OptiRoute was built from a measured model benchmark rather than assumed model rankings.
+AetherFlow was built from a measured model benchmark rather than assumed model rankings.
 
 ### Benchmark
 - **8 LLMs**
@@ -107,7 +107,7 @@ The sealed test split remains untouched during model fitting and threshold selec
 
 ## 🧠 How Routing Works
 
-OptiRoute performs the routing decision entirely before calling the selected model.
+AetherFlow performs the routing decision entirely before calling the selected model.
 
 ```text
                     OFFLINE
@@ -204,7 +204,7 @@ This is the primary benchmark result.
 | Class-based | 81.91% | 92.4% | $0.009377 | 50.8% |
 | Prior cascade | 83.69% | 94.4% | $0.009979 | 47.6% |
 | kNN cascade | 87.94% | 99.2% | $0.018711 | 1.8% |
-| **OptiRoute learned cascade** | **84.04%** | **94.8%** | **$0.006023** | **68.4%** |
+| **AetherFlow learned cascade** | **84.04%** | **94.8%** | **$0.006023** | **68.4%** |
 | Hindsight oracle | 94.68% | 106.8% | $0.003659 | 80.8% |
 
 <br/>
@@ -218,7 +218,7 @@ This is the primary benchmark result.
 
 The kNN baseline reaches higher accuracy, but gives up almost all of the cost savings.
 
-OptiRoute instead finds a substantially cheaper operating point while remaining above the predefined quality floor.
+AetherFlow instead finds a substantially cheaper operating point while remaining above the predefined quality floor.
 
 The hindsight oracle establishes the remaining headroom available from perfect per-query model knowledge.
 
@@ -259,7 +259,7 @@ Real deployments may ask different questions:
 - How much quality can we afford?
 - Can sensitive requests stay on approved local models?
 
-OptiRoute therefore includes a **Multi-Objective Router**.
+AetherFlow therefore includes a **Multi-Objective Router**.
 
 It uses the same learned model-quality scores and adds:
 - Cost weighting
@@ -273,7 +273,7 @@ It uses the same learned model-quality scores and adds:
 <br/>
 
 <div align="center">
-  <img src="figures/screenshots/mo_routing_decision.png" alt="OptiRoute Multi-Objective Routing Decision" width="100%" />
+  <img src="figures/screenshots/mo_routing_decision.png" alt="AetherFlow Multi-Objective Routing Decision" width="100%" />
   <p><em>② Multi-Objective Routing Decision: Dynamic utility optimization across Quality, Cost, Latency, and Privacy constraints.</em></p>
 </div>
 
@@ -400,7 +400,7 @@ Difficulty tiers are derived from cross-model agreement:
 | Always cheapest | 54.64% | 18.52% | 8.82% |
 | Class-based | 96.91% | 72.22% | 11.76% |
 | kNN cascade | 99.48% | 81.48% | 32.35% |
-| OptiRoute | 98.45% | 77.78% | 11.76% |
+| AetherFlow | 98.45% | 77.78% | 11.76% |
 | Oracle | 100.00% | 100.00% | 55.88% |
 
 ### Honest Limitation
@@ -443,8 +443,8 @@ The sealed test split is not used to tune the routing policy. A duplicate-ID aud
 ### Backend
 
 ```bash
-git clone https://github.com/abdul-raheem-fast/OptiRoute-AI.git
-cd OptiRoute-AI
+git clone https://github.com/abdul-raheem-fast/aether.flow.git
+cd aether.flow
 
 pip install -r requirements.txt
 
@@ -500,7 +500,7 @@ Supports both:
 
 ## 🖥️ Dashboard
 
-OptiRoute includes a React + TypeScript dashboard for exploring the routing system.
+AetherFlow includes a React + TypeScript dashboard for exploring the routing system.
 
 The dashboard exposes:
 - **Route Arena** — inspect individual routing decisions
@@ -528,7 +528,7 @@ The value of routing grows with query volume.
 
 For applications sending millions of requests, even a fraction of a cent saved per request can become a significant infrastructure cost difference.
 
-OptiRoute allows teams to choose an operating point based on their actual requirements:
+AetherFlow allows teams to choose an operating point based on their actual requirements:
 
 ```text
              QUALITY
@@ -616,7 +616,7 @@ The right model depends on:
 
 > **what the query asks · how much quality is required · how much latency is acceptable · how much the request can cost · whether the data can leave the deployment**
 
-OptiRoute turns those trade-offs into an explicit, measurable routing decision.
+AetherFlow turns those trade-offs into an explicit, measurable routing decision.
 
 - *Don't ask:* "Which LLM is best?"
 - *Ask:* **"Which LLM is best for this query, under my constraints?"**
@@ -626,7 +626,7 @@ OptiRoute turns those trade-offs into an explicit, measurable routing decision.
 ## 📁 Repository
 
 ```text
-OptiRoute-AI/
+aether.flow/
 ├── routing/              # Research + multi-objective routing
 ├── webapp/               # API + dashboard
 ├── tests/                # 130-test verification suite
@@ -643,4 +643,4 @@ OptiRoute-AI/
 
 ## 📄 License
 
-[MIT](LICENSE) © OptiRoute AI contributors
+[MIT](LICENSE) © AetherFlow contributors

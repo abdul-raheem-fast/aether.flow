@@ -1,4 +1,4 @@
-# OptiRoute AI - development / verification dependencies.
+# AetherFlow - development / verification dependencies.
 #
 #   pip install -r requirements-dev.txt
 #   pytest tests/            # 61 passed

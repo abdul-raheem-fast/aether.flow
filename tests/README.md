@@ -1,4 +1,4 @@
-# OptiRoute AI — correctness test suite
+# AetherFlow — correctness test suite
 
 Verification-only pytest suite for the routing system (`routing/`,
 `webapp/router_core.py`, `webapp/export_weights.py`, `webapp/server.py`) and its

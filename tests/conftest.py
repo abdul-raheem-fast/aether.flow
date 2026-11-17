@@ -1,4 +1,4 @@
-"""Shared fixtures for the OptiRoute AI correctness suite.
+"""Shared fixtures for the AetherFlow correctness suite.
 
 Everything here is read-only verification: no routing logic, weights or
 business behaviour is modified. Fixtures expose the exact same data loaders

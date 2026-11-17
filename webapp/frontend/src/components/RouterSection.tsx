@@ -36,7 +36,7 @@ export function RouterSection({ boot, mo, loading }: Props) {
       id="router"
       index="01"
       eyebrow="Live router"
-      title="OptiRoute Router"
+      title="AetherFlow Router"
       lead={LEAD[strategy]}
     >
       <div className="router-switch">

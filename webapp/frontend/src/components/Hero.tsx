@@ -33,7 +33,7 @@ export function Hero({ boot }: { boot: Bootstrap }) {
         </h1>
 
         <p className="hero-lead">
-          OptiRoute AI balances <em>quality, cost, latency and privacy</em> to route each query to
+          AetherFlow balances <em>quality, cost, latency and privacy</em> to route each query to
           the best-fit model — scored locally, <em>before dispatch</em>, with no extra LLM call.
         </p>
 

@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "description": "Deployment privacy policy for OptiRoute AI multi-objective routing. Administrators edit this file; the router reloads it at startup. Nothing here is a verified provider guarantee: retention/processing fields default to 'administrator-configured' unless the deployment has contractual evidence, and locally_hosted defaults are derived from models_registry.json notes ('originally self-hosted').",
+    "description": "Deployment privacy policy for AetherFlow multi-objective routing. Administrators edit this file; the router reloads it at startup. Nothing here is a verified provider guarantee: retention/processing fields default to 'administrator-configured' unless the deployment has contractual evidence, and locally_hosted defaults are derived from models_registry.json notes ('originally self-hosted').",
     "provenance": {
       "locally_hosted": "models_registry.json notes: Llama-3.1-8B-Instruct and Qwen3-8B were originally self-hosted via local inference servers; all other entries point at public provider endpoints.",
       "data_retention": "NOT verified by this project. Left as 'administrator-configured' so no provider privacy guarantee is fabricated.",

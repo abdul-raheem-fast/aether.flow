@@ -21,7 +21,7 @@ export function WhatWeProved() {
       index="05"
       eyebrow="Bottom line"
       title="What we proved"
-      lead="OptiRoute measures the quality, cost, latency and privacy trade-offs and lets you pick
+      lead="AetherFlow measures the quality, cost, latency and privacy trade-offs and lets you pick
             the operating point that fits — against a validated baseline."
     >
       <div className="stat-grid">

@@ -1,4 +1,4 @@
-"""OptiRoute AI demo server: routing API + React dashboard.
+"""AetherFlow demo server: routing API + React dashboard.
 
     python -m webapp.server            (serves http://127.0.0.1:8317)
 
@@ -48,7 +48,7 @@ LEGACY_DIR = WEBAPP_DIR / "static"
 FRONTEND_DIR = DIST_DIR if (DIST_DIR / "index.html").exists() else LEGACY_DIR
 ASSETS_DIR = FRONTEND_DIR / "assets"
 
-app = FastAPI(title="OptiRoute AI", docs_url="/api/docs", redoc_url=None)
+app = FastAPI(title="AetherFlow", docs_url="/api/docs", redoc_url=None)
 core = RouterCore()
 
 # Multi-objective router (experimental/advanced). Its artifact lives in the

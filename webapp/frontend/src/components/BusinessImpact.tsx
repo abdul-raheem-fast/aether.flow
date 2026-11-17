@@ -55,7 +55,7 @@ export function BusinessImpact({ rows }: { rows: PolicyRow[] }) {
       index="07"
       eyebrow="Business impact"
       title="What the routing decision is worth"
-      lead="Projection from measured test-split averages: your strategy versus the OptiRoute cascade, at your traffic volume."
+      lead="Projection from measured test-split averages: your strategy versus the AetherFlow cascade, at your traffic volume."
     >
       <div className="impact">
         <Card variant="elevated" className="impact-inputs">
@@ -125,7 +125,7 @@ export function BusinessImpact({ rows }: { rows: PolicyRow[] }) {
           </div>
 
           <div className="ledger" style={{ marginTop: "var(--grid-gap)" }}>
-            <div className="ledger-group">Without OptiRoute AI · {calc.basePolicy}</div>
+            <div className="ledger-group">Without AetherFlow · {calc.basePolicy}</div>
             <div className="ledger-row">
               <span className="k">Daily</span>
               <span className="v">{fmtUSD(calc.baseDay)}</span>
@@ -139,7 +139,7 @@ export function BusinessImpact({ rows }: { rows: PolicyRow[] }) {
               <span className="v">{fmtUSD(calc.baseYear)}</span>
             </div>
 
-            <div className="ledger-group">With OptiRoute AI · learned cascade</div>
+            <div className="ledger-group">With AetherFlow · learned cascade</div>
             <div className="ledger-row">
               <span className="k">Daily</span>
               <span className="v">{fmtUSD(calc.routedDay)}</span>

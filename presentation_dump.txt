@@ -1,5 +1,5 @@
 === SLIDE 1 (ppt/slides/slide1.xml) ===
-OptiRoute AI
+AetherFlow
 01
 Choosing an LLM for each query
 A routing prototype for quality, cost, latency and privacy
@@ -58,7 +58,7 @@ The demo makes a routing decision. Provider execution is the next integration st
 Predict first. Dispatch second.
 05
 USER QUERY
-LOCAL OPTIROUTE SCORER
+LOCAL AETHERFLOW SCORER
 QUALITY / COST / LATENCY / PRIVACY
 CHEAP / MID / STRONG MODEL
 NO EXTRA LLM CALL
@@ -152,13 +152,13 @@ Compare the selected model and cost.
 2   Private mode
 Keep the query unchanged.
 Inspect the restricted model pool.
-optiroute-ai-phi.vercel.app
+aetherflow-ai-phi.vercel.app
 Live model selection with benchmark-based cost and latency estimates
 
 === SLIDE 11 (ppt/slides/slide11.xml) ===
-Next steps for OptiRoute AI
+Next steps for AetherFlow
 11
-Working in OptiRoute
+Working in AetherFlow
 Next integration steps
 Query scoring and model selection
 Local / cloud provider execution

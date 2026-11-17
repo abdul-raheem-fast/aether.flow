@@ -1,4 +1,4 @@
-"""Vercel serverless entrypoint for the OptiRoute AI demo.
+"""Vercel serverless entrypoint for the AetherFlow demo.
 
 Vercel's ``@vercel/python`` runtime imports this module and serves the ASGI
 ``app`` object. We put the repository root on ``sys.path`` first so that

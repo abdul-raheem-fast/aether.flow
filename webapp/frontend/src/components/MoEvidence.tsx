@@ -158,7 +158,7 @@ function Guardrail({ rows }: { rows: PolicyRow[] }) {
           <Pill tone={safe ? "ok" : "bad"}>{safe ? "\u2713 SAFE" : "\u2717 AT RISK"}</Pill>
         </div>
         <p className="g-line">
-          Cost is the objective; quality is the constraint — OptiRoute is <b>not</b> “send
+          Cost is the objective; quality is the constraint — AetherFlow is <b>not</b> “send
           everything to the cheapest model”.
         </p>
       </div>

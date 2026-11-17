@@ -1,9 +1,9 @@
 {
-  "name": "optiroute-frontend",
+  "name": "aetherflow-frontend",
   "private": true,
   "version": "2.0.0",
   "type": "module",
-  "description": "OptiRoute AI dashboard — React + TypeScript + Vite frontend for the FastAPI routing server.",
+  "description": "AetherFlow dashboard — React + TypeScript + Vite frontend for the FastAPI routing server.",
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",

@@ -48,7 +48,7 @@ export function useMultiObjective() {
 }
 
 export type Theme = "dark" | "light";
-const THEME_KEY = "optiroute-theme";
+const THEME_KEY = "aetherflow-theme";
 
 /** Dark-first theme with localStorage persistence. */
 export function useTheme() {

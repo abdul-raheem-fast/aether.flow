@@ -23,12 +23,12 @@ export function Nav({ theme, onToggleTheme }: NavProps) {
   return (
     <header className="nav">
       <div className="container nav-inner">
-        <a className="brand" href="#top" aria-label="OptiRoute AI — back to top">
+        <a className="brand" href="#top" aria-label="AetherFlow — back to top">
           <span className="brand-mark" aria-hidden="true">
             &#9670;
           </span>
           <span>
-            OptiRoute AI
+            AetherFlow
             <br />
             <small>Intelligent LLM Router</small>
           </span>

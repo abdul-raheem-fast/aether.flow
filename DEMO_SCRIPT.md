@@ -1,4 +1,4 @@
-# OptiRoute AI — 3-Minute Demo Script
+# AetherFlow — 3-Minute Demo Script
 
 Server: `python -m webapp.server` → http://127.0.0.1:8317
 (Weights already exported; no API keys needed. Open the page in a clean
@@ -71,7 +71,7 @@ test query and routes it live.
 Drag the volume slider from 10k → 1M queries/day:
 
 > "At a million queries a day, always-GPT-5 costs about **$19,061/day**
-> ($6.96M/year). OptiRoute runs the same workload for **$6,023/day**
+> ($6.96M/year). AetherFlow runs the same workload for **$6,023/day**
 > ($2.20M/year) — **$4.76M saved**, same quality floor. The 'what the savings
 > buy' panel turns that into extra routed queries or extra GPT-5 calls for
 > genuinely hard work."

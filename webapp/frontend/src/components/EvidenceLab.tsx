@@ -5,7 +5,7 @@ import type { PolicyRow, ResultsPayload } from "../lib/types";
 
 const ORACLE_TIP =
   "Oracle has hindsight: it knows which model would perform best after seeing outcomes. " +
-  "OptiRoute must decide before inference, so Oracle is a theoretical upper bound, not a " +
+  "AetherFlow must decide before inference, so Oracle is a theoretical upper bound, not a " +
   "deployable baseline.";
 
 function EvCard({
@@ -85,7 +85,7 @@ export function EvidenceLab({ results }: { results: ResultsPayload }) {
         {strongest ? <EvCard title="Always strongest" row={strongest} /> : null}
         {learned ? (
           <EvCard
-            title="OptiRoute AI"
+            title="AetherFlow"
             row={learned}
             us
             extra={

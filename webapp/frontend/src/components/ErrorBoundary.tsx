@@ -26,7 +26,7 @@ export class ErrorBoundary extends Component<Props, State> {
 
   componentDidCatch(error: Error, info: ErrorInfo) {
     // Surfaced in the console for debugging; never swallowed silently.
-    console.error(`[OptiRoute] "${this.props.label}" failed to render:`, error, info.componentStack);
+    console.error(`[AetherFlow] "${this.props.label}" failed to render:`, error, info.componentStack);
   }
 
   render() {

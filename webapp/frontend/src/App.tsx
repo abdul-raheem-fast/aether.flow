@@ -25,7 +25,7 @@ export function App() {
   const { mo, loading: moLoading } = useMultiObjective();
   const moBundle = mo ?? EMPTY_MO;
 
-  if (loading) return <Skeleton label="loading optiroute" />;
+  if (loading) return <Skeleton label="loading aetherflow" />;
 
   if (bootError || !boot) {
     return (

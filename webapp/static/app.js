@@ -1,4 +1,4 @@
-/* OptiRoute AI dashboard logic — vanilla JS, no dependencies. */
+/* AetherFlow dashboard logic — vanilla JS, no dependencies. */
 "use strict";
 
 const $ = (sel) => document.querySelector(sel);
@@ -489,7 +489,7 @@ function renderGuardrail() {
       <span class="stat-label">margin</span></div>
     <div class="g-item"><span class="g-safe">${margin >= 0 ? "&#10003; SAFE" : "&#10007; AT RISK"}</span>
       <span class="stat-label">guardrail status</span></div>
-    <p class="g-line">Cost is the objective; quality is the constraint. OptiRoute optimizes
+    <p class="g-line">Cost is the objective; quality is the constraint. AetherFlow optimizes
     spend subject to a measured quality floor &mdash; it is not &ldquo;send everything to
     the cheapest model&rdquo;.</p>`;
 }
@@ -518,10 +518,10 @@ function renderEvidence() {
   const us = get("us");
   $("#ev-cards").innerHTML =
     card("Always strongest", get("always-strongest"), "") +
-    card("OptiRoute AI", us, "us",
+    card("AetherFlow", us, "us",
       `<span class="mono"><b>${Number(us.cost_reduction_vs_strongest_pct).toFixed(1)}% cheaper</b> at ${Number(us.quality_vs_strongest_pct).toFixed(1)}% of flagship quality</span>`) +
     card("Oracle ceiling", get("oracle"), "",
-      `<span class="mono tip" data-tip="Oracle has hindsight: it knows which model would perform best after seeing outcomes. OptiRoute must decide before inference, so Oracle is a theoretical upper bound, not a deployable baseline.">what does oracle mean?</span>`);
+      `<span class="mono tip" data-tip="Oracle has hindsight: it knows which model would perform best after seeing outcomes. AetherFlow must decide before inference, so Oracle is a theoretical upper bound, not a deployable baseline.">what does oracle mean?</span>`);
 }
 
 /* ------------------------------------------------- operations */
